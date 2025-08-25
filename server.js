@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.post('/api/dhan-historical', async (req, res) => {
     const DHAN_ACCESS_TOKEN = process.env.DHAN_ACCESS_TOKEN;
-    const DHAN_HISTORICAL_API_URL = 'https://api.dhan.co/charts/intraday';
+    const DHAN_HISTORICAL_API_URL = 'https://api.dhan.co/v2/charts/intraday';
 
     if (!DHAN_ACCESS_TOKEN) {
         console.error('DHAN_ACCESS_TOKEN is not set.');
