@@ -1,8 +1,10 @@
 const express = require("express");
 const fetch = require("node-fetch"); // v2 (Render uses Node 16 by default)
+const cors = require("cors"); 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // Forward any /v2/* request to Dhan API
 app.use("/v2", async (req, res) => {
