@@ -70,7 +70,8 @@ async def poll_option_chains():
                 )
         # Run all requests in parallel
         await asyncio.gather(*tasks)
-        await asyncio.sleep(5)  # allowed frequency per docs
+        await asyncio.sleep(10)  # allowed frequency per docs
 
 
     
+
