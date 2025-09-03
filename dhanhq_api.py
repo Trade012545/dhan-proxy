@@ -19,7 +19,7 @@ INDEX_CONFIG = {
     "NIFTY": {
         "security_id": "13",    # <-- your real ID from instruments csv
         "segment": "IDX_I",
-        "expiries": ["2025-09-02"]
+        "expiries": ["2025-09-09"]
     },
 }
 
@@ -71,5 +71,6 @@ async def poll_option_chains():
         # Run all requests in parallel
         await asyncio.gather(*tasks)
         await asyncio.sleep(5)  # allowed frequency per docs
+
 
     
