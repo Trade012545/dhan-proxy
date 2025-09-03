@@ -2,12 +2,17 @@
 
 import asyncio
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.responses import HTMLResponse
 from dhanhq_api import poll_option_chains, option_chain_cache
 
 app = FastAPI()
 
 # Store active websocket connections
 connected_clients = []
+
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}
 
 @app.on_event("startup")
 async def start_polling():
@@ -29,3 +34,4 @@ async def websocket_endpoint(websocket: WebSocket):
             await asyncio.sleep(5)
     except WebSocketDisconnect:
         connected_clients.remove(websocket)
+
